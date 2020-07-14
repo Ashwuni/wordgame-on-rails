@@ -1,6 +1,7 @@
 <% if flash[:message] %>
   <p><%= flash[:message] %></p>
 <% end %>
+
 <p>You have <%= @game.remaining%> remaining</p>
 <p>Wrong guesses: <%= @game.wrong_guesses %></p>
 <p>Word so far: <%= @game.word_with_guesses %></p>
