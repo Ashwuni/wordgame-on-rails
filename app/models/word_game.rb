@@ -3,12 +3,13 @@ class WordGame
   # Author: Mark Smucker
   # Date: June 2020
 
-  attr_reader :word, :guesses, :wrong_guesses
+  attr_reader :word, :guesses, :wrong_guesses, :max_wrong
     
   def initialize(word)
     @word = word.downcase
     @guesses = '' # stores all correct guesses
     @wrong_guesses = '' # stores all incorrect guesses
+    @max_wrong = 0 #stores maximum number of wrong guesses
   end  
   
   # returns true if illegal argument for guess method
@@ -46,7 +47,7 @@ class WordGame
   end
     
   def check_win_or_lose
-      if @wrong_guesses.length >= 7
+      if @wrong_guesses.length >= @max_wrong
          return :lose
       elsif word_with_guesses == @word 
          return :win

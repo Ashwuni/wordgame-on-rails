@@ -1,3 +1,9 @@
 <%= form_with( url: game_create_path, local: true) do |form| %>
+
+<%= label_tag( :guess, "Maximum game number:" ) %>
+<%= text_field_tag( :max_number, 7, maxlength: 2000 ) %>
+
+
+<%= render template: 'game/new' %>
 <%= submit_tag 'New Game' %>
 <% end %>
