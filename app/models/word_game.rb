@@ -5,11 +5,11 @@ class WordGame
 
   attr_reader :word, :guesses, :wrong_guesses, :max_wrong
     
-  def initialize(word)
+  def initialize(word, max_wrong)
     @word = word.downcase
     @guesses = '' # stores all correct guesses
     @wrong_guesses = '' # stores all incorrect guesses
-    @max_wrong = 0 #stores maximum number of wrong guesses
+    @max_wrong = max_wrong #stores maximum number of wrong guesses
   end  
   
   # returns true if illegal argument for guess method
