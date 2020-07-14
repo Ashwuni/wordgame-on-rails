@@ -18,6 +18,21 @@ class GameController < ApplicationController
   end
 
   def guess
+    letter = params[:guess].to_s[0]
+    
+    if @game.guess_illegal_argument? letter
+        flash[:message] = "Invalid guess."
+    elsif ! @game.guess letter # enter the guess here
+        flash[:message] = "You have already used that letter."
+    end
+    
+    if @game.check_win_or_lose == :win
+        redirect_to game_win_path
+    elsif @game.check_win_or_lose == :lose
+        redirect_to game_lose_path
+    else    
+        redirect_to game_show_path
+    end
   end
     
   def store_game_in_session
