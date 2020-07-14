@@ -47,7 +47,7 @@ class WordGame
   end
     
   def check_win_or_lose
-      if @wrong_guesses.length >= @max_wrong
+      if @wrong_guesses.length >= @max_wrong.to_i
          return :lose
       elsif word_with_guesses == @word 
          return :win

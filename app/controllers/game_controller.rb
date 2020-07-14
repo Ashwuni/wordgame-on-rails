@@ -15,7 +15,7 @@ class GameController < ApplicationController
       max_number = params[:max_number].to_s[0]
       word = params[:word] || WordGame.get_random_word
 
-      if max_number.guess_illegal_argument? max_number
+      if max_number.length < 0 || max_number =~ /[^a-zA-Z]/
           flash[:message] = "Must enter a number 0 or larger."
           redirect_to_game_new_path
       elsif max_number == nil #default
