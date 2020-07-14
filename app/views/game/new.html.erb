@@ -1,7 +1,11 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <%= form_with( url: game_create_path, local: true) do |form| %>
 
-<%= label_tag( :guess, "Maximum game number:" ) %>
-<%= text_field_tag( :max_number, 7, maxlength: 2000 ) %>
+<%= label_tag( :max_number, "Maximum Wrong Numbers:" ) %>
+<%= text_field_tag( :max_number, nil, maxlength: 2000 ) %>
 
 
 <%= render template: 'game/new' %>
