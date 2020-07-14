@@ -12,17 +12,17 @@ class GameController < ApplicationController
   end
 
   def create
-      word = params[:word] || WordGame.get_random_word
-      @game = WordGame.new word
-      redirect_to game_show_path 
-      
-      if @max_number.guess_illegal_argument? letter
-        flash[:message] = "Must enter a number 0 or larger."
-      elsif ! @max_number.guess letter # enter the guess here
+      letter = params[:max_number].to_s[0]
+
+      if @max_number.guess_illegal_argument? letter || ! @max_number.guess letter # enter the guess here
         flash[:message] = "Must enter a number 0 or larger."
       elsif @max_number == nil #default
         @max_number =7
       end
+      
+      word = params[:word] || WordGame.get_random_word
+      @game = WordGame.new word
+      redirect_to game_show_path 
   end
 
   def guess

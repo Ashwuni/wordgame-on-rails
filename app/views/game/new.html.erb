@@ -5,9 +5,8 @@
 <%= form_with( url: game_create_path, local: true) do |form| %>
 
 <%= label_tag( :max_number, "Maximum Wrong Numbers:" ) %>
-<%= text_field_tag( :max_number, nil, maxlength: 2000 ) %>
+<%= text_field_tag( :max_number, nil, maxlength: 3 ) %>
 
-
-<%= render template: 'game/new' %>
+<!-- <%= render template: 'game/new' %> -->
 <%= submit_tag 'New Game' %>
 <% end %>
