@@ -17,7 +17,14 @@ class WordGame
   def guess_illegal_argument? letter
     letter == nil || letter.length != 1 || letter =~ /[^a-zA-Z]/
   end
-    
+  
+  def remaining
+      if wrong_guesses == nil
+          return @max_wrong.to_i
+      else
+          return (@max_wrong.to_i-@wrong_guesses.length)
+      end
+  end 
   # user guesses this letter
   # return true if not guessed before
   # return false if guessed

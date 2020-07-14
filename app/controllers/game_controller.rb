@@ -15,12 +15,13 @@ class GameController < ApplicationController
       max_number = params[:max_number].to_s[0]
       word = params[:word] || WordGame.get_random_word
 
-      if max_number.length < 0 || max_number =~ /[^a-zA-Z]/
-          flash[:message] = "Must enter a number 0 or larger."
-          redirect_to game_new_path
-      elsif max_number == nil #default
+      
+      if max_number == nil #default
           @game = WordGame.new word,7
           redirect_to game_show_path
+      elsif max_number.to_i < 0 || max_number[/[^a-zA-Z]+/] != max_number
+          flash[:message] = "Must enter a number 0 or larger."
+          redirect_to game_new_path
       else
           @game = WordGame.new word,max_number
           redirect_to game_show_path
