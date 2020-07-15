@@ -1,8 +1,14 @@
 class GameController < ApplicationController
   def win
+    if @game.check_win_or_lose == :play
+       redirect_to game_new_path
+    end
   end
 
   def lose
+    if @game.check_win_or_lose == :play
+       redirect_to game_new_path
+    end
   end
 
   def show

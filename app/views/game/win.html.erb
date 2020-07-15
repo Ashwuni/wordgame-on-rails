@@ -1,3 +1,9 @@
+<!-- if @check_win_or_lose == @play @wrong_guesses != @max_number
+    redirect_to game_new_path
+else -->
+
 <p>You Win!</p>
 <p>The word was "<%= @game.word %>".</p>
 <%= render template: 'game/new' %>
+
+end
