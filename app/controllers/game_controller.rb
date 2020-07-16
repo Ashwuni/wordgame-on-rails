@@ -18,7 +18,7 @@ class GameController < ApplicationController
   end
 
   def create
-      max_number = params[:max_number].to_s[0]
+      max_number = params[:max_number].to_s
       word = params[:word] || WordGame.get_random_word
 
       
@@ -37,7 +37,7 @@ class GameController < ApplicationController
   end
 
   def guess
-    letter = params[:guess].to_s[0]
+    letter = params[:guess].to_s
     
     if @game.guess_illegal_argument? letter
         flash[:message] = "Invalid guess."
