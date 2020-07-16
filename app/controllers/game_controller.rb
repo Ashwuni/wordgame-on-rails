@@ -32,9 +32,7 @@ class GameController < ApplicationController
       else
           @game = WordGame.new word,max_number
           redirect_to game_show_path
-      end
-      
-      #redirect_to game_show_path 
+      end 
   end
 
   def guess
