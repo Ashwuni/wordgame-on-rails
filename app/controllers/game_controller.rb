@@ -25,7 +25,8 @@ class GameController < ApplicationController
       if max_number == nil #default
           @game = WordGame.new word,7
           redirect_to game_show_path
-      elsif max_number.to_i < 0 || max_number[/[^a-zA-Z]+/] != max_number
+      elsif max_number.to_i < 0 || (max_number.to_i.to_s!=max_number)
+          #max_number[/[^a-zA-Z]+/] != max_number
           flash[:message] = "Must enter a number 0 or larger."
           redirect_to game_new_path
       else
