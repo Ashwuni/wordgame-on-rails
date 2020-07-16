@@ -61,7 +61,7 @@ class GameController < ApplicationController
     if !session[:game].blank? 
       @game = YAML.load(session[:game])
     else
-      @game = WordGame.new('')
+      @game = WordGame.new('', @max_number)
     end
   end
     
