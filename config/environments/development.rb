@@ -1,5 +1,5 @@
 Rails.application.configure do
-    config.hosts << "sabine-million-3000.codio.io"
+    config.hosts << "https://rails-wordgame-a255kuma.herokuapp.com/"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
